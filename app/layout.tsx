@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Cube Timer',
-  description: 'A focused 3×3 Rubik’s Cube scramble and timer.',
+  title: "Rubik's Cube Timer",
+  description: 'A focused, responsive 3×3 Rubik’s Cube scramble and timer.',
 };
 
 export default function RootLayout({
