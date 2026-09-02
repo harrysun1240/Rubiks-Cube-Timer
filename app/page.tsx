@@ -14,7 +14,7 @@ type Sticker = {
   position: Vector;
 };
 
-const HOLD_DURATION = 1500;
+const HOLD_DURATION = 500;
 const FACE_ORDER: Face[] = ['U', 'L', 'F', 'R', 'B', 'D'];
 const FACE_COLORS: Record<Face, string> = {
   U: '#f5cf45',

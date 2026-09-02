@@ -13,4 +13,4 @@ Open `http://localhost:3000`.
 
 ## Controls
 
-Hold the space bar or the left mouse button for 1.5 seconds. Release when the timer turns green to start, then press space or click once to stop.
+Hold the space bar or the left mouse button for 0.5 seconds. Release when the timer turns green to start, then press space or click once to stop.
