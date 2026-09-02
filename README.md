@@ -25,9 +25,9 @@ Releasing before the timer turns green cancels the start.
 
 - TypeScript
 - React 19
-- Vinext and Vite
+- Vite
 - CSS
-- Cloudflare-compatible deployment through OpenAI Sites
+- Provider-independent static deployment
 
 ## Run locally
 
@@ -46,7 +46,7 @@ Open [http://localhost:3000](http://localhost:3000).
 npm run dev       # Start the development server
 npm run lint      # Run the linter
 npm run build     # Create a production build
-npm run start     # Run the production worker locally
+npm run start     # Preview the production build locally
 ```
 
 ## Version 1.0 scope
