@@ -1,0 +1,235 @@
+:root {
+  --background: #111310;
+  --foreground: #f2f0e9;
+  --muted: #8e9289;
+  --line: #2a2e28;
+  --ready: #79d497;
+  --holding: #ef6d64;
+  --font-sans:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', sans-serif;
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+}
+
+.dark {
+  --background: #111310;
+  --foreground: #f2f0e9;
+  --muted: #8e9289;
+  --line: #2a2e28;
+  --ready: #79d497;
+  --holding: #ef6d64;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+.timer-shell {
+  display: grid;
+  min-height: 100svh;
+  grid-template-rows: minmax(120px, 0.8fr) minmax(180px, 1fr) minmax(
+      220px,
+      1.1fr
+    );
+  align-items: center;
+  padding: clamp(24px, 4vw, 52px);
+  cursor: default;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.timer-shell::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(
+      circle at 50% 43%,
+      rgb(255 255 255 / 3.5%),
+      transparent 34%
+    ),
+    var(--background);
+  content: '';
+}
+
+.scramble-area {
+  width: min(920px, 100%);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 650;
+  letter-spacing: 0.2em;
+}
+
+.scramble-area h1 {
+  min-height: 2.7em;
+  margin: 0;
+  color: #dad8d1;
+  font-family: var(--font-mono);
+  font-size: clamp(1rem, 1.8vw, 1.35rem);
+  font-weight: 500;
+  line-height: 1.55;
+  letter-spacing: 0.035em;
+}
+
+.timer-area {
+  align-self: center;
+  text-align: center;
+}
+
+.time {
+  display: block;
+  color: var(--foreground);
+  font-family: var(--font-mono);
+  font-size: clamp(4.8rem, 14vw, 10.5rem);
+  font-variant-numeric: tabular-nums;
+  font-weight: 450;
+  line-height: 0.9;
+  letter-spacing: -0.09em;
+  transform: translateX(-0.045em);
+  transition:
+    color 120ms ease,
+    transform 120ms ease;
+}
+
+.instruction {
+  margin: clamp(22px, 4vh, 34px) 0 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 550;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 120ms ease;
+}
+
+.timer-shell[data-phase='holding'] .time,
+.timer-shell[data-phase='holding'] .instruction {
+  color: var(--holding);
+}
+
+.timer-shell[data-phase='holding'] .time {
+  transform: translateX(-0.045em) scale(0.985);
+}
+
+.timer-shell[data-phase='ready'] .time,
+.timer-shell[data-phase='ready'] .instruction {
+  color: var(--ready);
+}
+
+.cube-net {
+  --face-size: clamp(46px, 6.1vw, 72px);
+  display: grid;
+  width: calc(var(--face-size) * 4 + 15px);
+  grid-template-columns: repeat(4, var(--face-size));
+  grid-template-rows: repeat(3, var(--face-size));
+  gap: 5px;
+  align-self: end;
+  justify-self: center;
+  margin: 0;
+}
+
+.cube-face {
+  display: grid;
+  padding: 3px;
+  border: 1px solid #353932;
+  border-radius: 4px;
+  background: #090a09;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.sticker {
+  min-width: 0;
+  min-height: 0;
+  border-radius: 1.5px;
+}
+
+.face-u {
+  grid-column: 2;
+  grid-row: 1;
+}
+.face-l {
+  grid-column: 1;
+  grid-row: 2;
+}
+.face-f {
+  grid-column: 2;
+  grid-row: 2;
+}
+.face-r {
+  grid-column: 3;
+  grid-row: 2;
+}
+.face-b {
+  grid-column: 4;
+  grid-row: 2;
+}
+.face-d {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+@media (max-height: 680px) {
+  .timer-shell {
+    grid-template-rows: minmax(100px, 0.7fr) minmax(140px, 0.9fr) minmax(
+        175px,
+        1fr
+      );
+    padding-block: 20px;
+  }
+
+  .time {
+    font-size: clamp(4rem, 13vw, 7.5rem);
+  }
+
+  .instruction {
+    margin-top: 18px;
+  }
+
+  .cube-net {
+    --face-size: clamp(42px, 8vh, 58px);
+  }
+}
+
+@media (max-width: 520px) {
+  .timer-shell {
+    padding-inline: 18px;
+  }
+
+  .scramble-area h1 {
+    font-size: 0.92rem;
+  }
+
+  .cube-net {
+    --face-size: min(15.5vw, 58px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
