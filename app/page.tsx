@@ -331,14 +331,23 @@ export default function Home() {
     };
   }, [beginHold, releaseHold]);
 
-  const instruction =
+  const desktopInstruction =
     phase === 'holding'
       ? 'Keep holding'
       : phase === 'ready'
         ? 'Release to start'
         : phase === 'running'
-          ? 'Press space or click to stop'
-          : 'Hold space or mouse to start';
+          ? 'Press Space or click anywhere to stop'
+          : 'Hold Space or press and hold anywhere to start';
+
+  const touchInstruction =
+    phase === 'holding'
+      ? 'Keep holding'
+      : phase === 'ready'
+        ? 'Release to start'
+        : phase === 'running'
+          ? 'Tap anywhere to stop'
+          : 'Touch and hold anywhere to start';
 
   return (
     <main
@@ -366,7 +375,10 @@ export default function Home() {
         <output className="time" aria-live="off">
           {formatTime(elapsed)}
         </output>
-        <p className="instruction">{instruction}</p>
+        <p className="instruction">
+          <span className="instruction-desktop">{desktopInstruction}</span>
+          <span className="instruction-touch">{touchInstruction}</span>
+        </p>
       </section>
 
       <CubeNet scramble={scramble} />

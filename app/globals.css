@@ -121,6 +121,10 @@ body {
   transition: color 120ms ease;
 }
 
+.instruction-touch {
+  display: none;
+}
+
 .timer-shell[data-phase='holding'] .time,
 .timer-shell[data-phase='holding'] .instruction {
   color: var(--holding);
@@ -222,6 +226,16 @@ body {
 
   .cube-net {
     --face-size: min(15.5vw, 58px);
+  }
+}
+
+@media (pointer: coarse) {
+  .instruction-desktop {
+    display: none;
+  }
+
+  .instruction-touch {
+    display: inline;
   }
 }
 
