@@ -27,7 +27,7 @@ Releasing before the timer turns green cancels the start.
 - React 19
 - Vite
 - CSS
-- Provider-independent static deployment
+- Static deployment through GitHub Pages
 
 ## Run locally
 
@@ -38,7 +38,8 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open the local address printed by Vite, normally
+[http://localhost:5173](http://localhost:5173).
 
 ## Available scripts
 
